@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+  /* Page palette — light is warm white, dark is deep espresso */
+  --color-warm-50:  #FFFCF8;   /* page bg */
+  --color-warm-100: #F5EDE0;   /* section alt bg */
+  --color-warm-200: #EAD5BD;   /* card borders */
+  --color-warm-300: #C8A07A;   /* strong border / hr */
+  --color-warm-400: #7A4A28;   /* muted text — 9:1 on warm-50 ✓ */
+  --color-warm-500: #C44A0C;   /* BRAND terracotta — 5:1 on warm-50 ✓ */
+  --color-warm-600: #9B3A08;   /* brand hover */
+  --color-warm-700: #4A2010;   /* body text — 14:1 on warm-50 ✓ */
+  --color-warm-800: #2A1008;   /* heading text */
+  --color-warm-900: #100500;   /* dark backgrounds */
+
+  --color-gold-200: #F0D870;
+  --color-gold-300: #D4A820;
+  --color-gold-400: #C49010;
+  --color-gold-500: #9A7000;
+}
+
+/* Light mode tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:       #FFFCF8;
+  --bg-alt:   #F5EDE0;
+  --text:     #2A1008;
+  --muted:    #7A4A28;
+  --brand:    #C44A0C;
+  --border:   #EAD5BD;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode tokens */
+.dark {
+  --bg:       #100500;
+  --bg-alt:   #1C0A04;
+  --text:     #F5EDE0;
+  --muted:    #9A6840;
+  --brand:    #E06828;
+  --border:   #2D1408;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* offset for sticky navbar when jumping to anchors */
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-fade-up { animation: fadeUp  0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in { animation: fadeIn  0.5s ease both; }
+
+/* Skeleton shimmer */
+.shimmer {
+  background: linear-gradient(90deg, #EAD5BD 25%, #FFFCF8 50%, #EAD5BD 75%);
+  background-size: 200% auto;
+  animation: shimmer 1.6s linear infinite;
+}
+.dark .shimmer {
+  background: linear-gradient(90deg, #1C0A04 25%, #2D1408 50%, #1C0A04 75%);
+  background-size: 200% auto;
 }

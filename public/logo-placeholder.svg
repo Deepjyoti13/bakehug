@@ -1,0 +1,20 @@
+<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bread loaf body -->
+  <ellipse cx="60" cy="70" rx="46" ry="22" fill="#8B4513"/>
+  <ellipse cx="60" cy="65" rx="44" ry="20" fill="#C17A3D"/>
+  <ellipse cx="60" cy="60" rx="42" ry="18" fill="#E8A86E"/>
+
+  <!-- Steam/wheat top -->
+  <path d="M40 35 C40 22 60 16 60 16 C60 16 80 22 80 35" stroke="#8B4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Wheat kernels -->
+  <ellipse cx="60" cy="16" rx="5" ry="7" fill="#8B4513" transform="rotate(0 60 16)"/>
+  <ellipse cx="47" cy="28" rx="4" ry="6" fill="#8B4513" transform="rotate(-20 47 28)"/>
+  <ellipse cx="73" cy="28" rx="4" ry="6" fill="#8B4513" transform="rotate(20 73 28)"/>
+
+  <!-- Score marks on bread -->
+  <path d="M35 62 Q60 55 85 62" stroke="#6B3410" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- BakeHug text -->
+  <text x="60" y="97" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#8B4513" text-anchor="middle" letter-spacing="1">BakeHug</text>
+</svg>
